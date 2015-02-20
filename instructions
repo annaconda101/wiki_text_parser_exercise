@@ -1,0 +1,55 @@
+PHP test:
+
+Design a basic PHP based text parser which translates some wikipedia-like
+markup into HTML. Wikipedia markup looks like this:
+
+[command|arg1|arg2|...|argN]
+
+We need only to translate two markups:
+
+1. Articles
+=================
+
+[Article|id|optional alternative headline]
+
+'Article' is a command telling us that this is an article link markup. It
+should be translated to: <a href="index.php?id=<id from the
+command>"><headline, possibly alternative headline></a>
+
+
+
+2. Images
+====================
+
+[Image|name|caption]
+
+'Image' is a command telling us this is an image. All arguments are
+compulsory. It must be translated to:
+
+<img src="im.php?imname=<name>" alt="<caption>" /> Caption: <caption>
+
+Articles we recognise are provided in the following array:
+
+$ARTS = array("1"=>"Ruby the new PHP?", "2"=>"Boring article");
+
+Here, the relationship is id => pre existing headline.
+
+Images we recognise are as follows:
+
+$IMS = array("guitar.jpg", "gavin's new car.jpg", "coffee.jpg");
+
+If an article or image cannot be found or if the markup is malformed, it
+should be omitted from the output.
+
+
+
+
+Using these and the rules above, translate the following:
+
+-----
+
+"Another day, another blog entry. Did you see my new
+guitar? [Image|guitar.jpg|a guitar]
+
+I found this [Article|1|article] interesting, but this one "[Article|3]"
+was more interesting -- actually, it was [Article|2|This one]."

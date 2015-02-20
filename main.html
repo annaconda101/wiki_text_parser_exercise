@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	  <script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+	  <script type="text/javascript" src="main.js"></script>
+	  <title>Wiki Mark Up Translator via Wiki JS</title>
+	<link href="main.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="wiki-like-mark-up">
+
+	  <textarea id="textarea" onchange="$('#preview').html(wiky.process_image($(this).val()));">
+
+	  <!--trial and understanding wiki js api>-->
+
+	  This is Taeyeon.
+	  [[File:http://www.oknation.net/blog/home/blog_data/12/2012/images/ty4.jpg Taeyeon]]
+	  Taeyeon is so cute.
+
+
+      <!--  "Another day, another blog entry. Did you see my new<br>
+  	    guitar? [Image|guitar.jpg|a guitar]<br>
+
+   	    "I found this [Article|1|article] interesting, but this one "[Article|3]"<br>
+	    was more interesting -- actually, it was [Article|2|This one]."<br>-->
+      </textarea>
+    </div>
+    <div class="translated">
+		<span style="display:block;width:600px;border:1px solid #999999;">
+			<span style="display:block;margin:10px 10px 10px 10px;" class="wiky_preview_area" id="preview">
+			</span>
+		</span>
+    </div>
+  </body>
+  <script language="javascript">
+	$('#preview').html(wiky.process_image($('#textarea').val()));
+</script> 
+<html>
+
+ 
